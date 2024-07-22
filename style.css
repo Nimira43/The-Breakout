@@ -3,3 +3,12 @@
 * {
   font-family: 'Poppins', sans-serif
 }
+
+.game-canvas {
+  width: 800px;
+  height: 600px;
+  background: linear-gradient(
+    skyblue,
+    darkgreen
+  );
+}
