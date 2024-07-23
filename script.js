@@ -81,37 +81,44 @@ function isBrickAtColRow(col, row) {
     col >= 0 &&
     col < BRICK_COLS &&
     row >= 0 &&
-    row < BRICK_ROWS) {
+    row < BRICK_ROWS
+  ) {
     let brickIndexUnderCoord = rowColToArrayIndex(col, row)
     return brickGrid[brickIndexUnderCoord]
-  } else {
+    } else {
     return false
-    }
+  }
 }
 
 function ballBrickHandling() {
   let ballBrickCol = Math.floor(ballX / BRICK_W)
   let ballBrickRow = Math.floor(ballY / BRICK_H)
   let brickIndexUnderBall = rowColToArrayIndex(ballBrickCol, ballBrickRow)
-  if (ballBrickCol >= 0 && ballBrickCol < BRICK_COLS && ballBrickRow >= 0 && ballBrickRow < BRICK_ROWS) {
+  if (
+    ballBrickCol >= 0 &&
+    ballBrickCol < BRICK_COLS &&
+    ballBrickRow >= 0 &&
+    ballBrickRow < BRICK_ROWS
+  ) {
     if (isBrickAtColRow(ballBrickCol, ballBrickRow)) {
       brickGrid[brickIndexUnderBall] = false
       bricksLeft--
       let prevBallX = ballX - ballSpeedX
       let prevBallY = ballY - ballSpeedY
-      let prevBrickCol =Math.floor(prevBallX / BRICK_W)
+      let prevBrickCol = Math.floor(prevBallX / BRICK_W)
       let prevBrickRow = Math.floor(prevBallY / BRICK_H)
       let bothTestsFailed = true
+
       if (prevBrickCol != ballBrickCol) {
         if (isBrickAtColRow(prevBrickCol, ballBrickRow) == false) {
           ballSpeedX *= -1
-          bothTestsFailed = False
+          bothTestsFailed = false
         }
       }
       if (prevBrickRow != ballBrickRow) {
-        if (isBrickAtColRow(ballBrickRow, prevBrickCol) == false) {
+        if (isBrickAtColRow(ballBrickCol, prevBrickRow) == false) {
           ballSpeedY *= -1
-          bothTestsFailed = False
+          bothTestsFailed = false
         }
       }
       if (bothTestsFailed) {
@@ -162,8 +169,8 @@ function drawBricks() {
           BRICK_W * eachCol,
           BRICK_H * eachRow,
           BRICK_W - BRICK_GAP,
-          BRICK_W - BRICK_GAP,
-          'ff4500'
+          BRICK_H - BRICK_GAP,
+          'black'
         )
       }
     }
@@ -171,14 +178,14 @@ function drawBricks() {
 }
 
 function drawAll() {
-  colorRect(0, 0, canvas.width, canvas.height, '#87ceeb')
-  colorCircle(ballX, ballY, 10, 'blue')
+  colorRect(0, 0, canvas.width, canvas.height, '#ff4500')
+  colorCircle(ballX, ballY, 10, 'yellow')
   colorRect(
     paddleX,
     canvas.height - PADDLE_DIST_FROM_EDGE,
     PADDLE_WIDTH,
     PADDLE_THICKNESS,
-    '#000000'
+    'black'
   )
   drawBricks()
 }

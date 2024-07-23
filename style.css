@@ -1,15 +1,8 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Fredericka+the+Great&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 
 * {
-  font-family: 'Poppins', sans-serif;
+  font-family: 'Fredericka the Great', cursive;
 }
-
-:root {
-  --dk: #111;
-  --lg: #f5f5dc;
-  --ma: #ff4500;
-}
-
 
 body {
   width: 100%;
@@ -17,20 +10,38 @@ body {
   background: linear-gradient(
     rgba(0, 0, 0, 0.8),
     rgba(0, 0, 0, 0.7)),
-    url('./images/bg-2.jpg') no-repeat center;
+    url('./images/bg.jpg') no-repeat center;
   background-size: cover;
   display: flex;
   align-items: center;
   justify-content: center;
+  overflow: hidden;
+}
+
+.first,
+.second {
+  position: absolute;
+  font-size: 65px;
+  font-weight: lighter;
+  left: 45px;
+  text-shadow: 3px 3px 2px #111,
+               2px 2px 1px #eee;
+}
+
+.first {
+  top: 200px;
+  color: gold;
+}
+
+.second {
+  top: 300px;
+  color: orangered;
 }
 
 .game-canvas {
   width: 800px;
   height: 600px;
-  background: linear-gradient(rgba(0, 0, 0, 0.6),
-        rgba(0, 0, 0, 0.6)),
-      url('./images/inner-bg.jpg') no-repeat center;
-    background-size: cover;
-    border: 2px solid var(--ma);
-    
+  border-radius: 20px;
+  border: 3px solid gold;
+  box-shadow: 5px 15px 30px rgba(0, 0, 0, 0.8);
 }
