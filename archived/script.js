@@ -48,6 +48,11 @@ window.onload = () => {
   ballReset()
 }
 
+// function updateAll() {
+//   moveAll()
+//   drawAll()
+// }
+
 const updateAll = () => {
   moveAll()
   drawAll()
@@ -58,12 +63,23 @@ const ballReset = () => {
   ballY = canvas.height / 2
 }
 
+// function ballReset() {
+//   ballX = canvas.width / 2
+//   ballY = canvas.height / 2
+// }
+
 function ballMove() {
   ballX += ballSpeedX
   ballY += ballSpeedY
-  if (ballX < 0 && ballSpeedX < 0.0) ballSpeedX *= -1
-  if (ballX > canvas.width && ballSpeedX > 0.0) ballSpeedX *= -1
-  if (ballY < 0 && ballSpeedY < 0.0) ballSpeedY *= -1
+  if (ballX < 0 && ballSpeedX < 0.0) {
+    ballSpeedX *= -1
+  }
+  if (ballX > canvas.width && ballSpeedX > 0.0) {
+    ballSpeedX *= -1
+  }
+  if (ballY < 0 && ballSpeedY < 0.0) {
+    ballSpeedY *= -1
+  }
   if (ballY > canvas.height) {
     ballReset()
     blockReset()
@@ -149,6 +165,16 @@ const moveAll = () => {
   handleBallBrick()
   handleBallBat()
 }
+
+// function moveAll() {
+//   ballMove()
+//   handleBallBrick()
+//   handleBallBat()
+// }
+
+// function gridIndex(col, row) {
+//   return col + blockCols * row
+// }
 
 const gridIndex = (col, row) => {
   return col + blockCols * row
